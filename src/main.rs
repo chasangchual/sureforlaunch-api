@@ -18,8 +18,11 @@ async fn health_check() -> HttpResponse {
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
-            .service(greet)
-            .service(ping)
+            .service(
+                web::scope("/api/v1")
+                    .service(greet)
+                    .service(ping)
+            )
             .route("/health_check", web::get().to(health_check))
     })
     .bind(("127.0.0.1", 9090))?
