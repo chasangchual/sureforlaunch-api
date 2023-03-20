@@ -1,10 +1,14 @@
 [package]
 name = "sureforlaunch-api"
 version = "0.1.0"
+authors = ["Sangchual CHA <sangchual.cha@gmail.com>"]
 edition = "2021"
 
+[lib]
+path = "src/lib.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 tokio = {version = "1", features = ["full"]}
 actix-web = "4"
+reqwest = "0.11"
